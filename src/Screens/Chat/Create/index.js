@@ -20,7 +20,6 @@ const Index = ({navigation}) => {
     const userId = user.uid;
     const userName = user.displayName;
 
-    console.log(user);
 
     var database = firebase.database().ref('/rooms');
 

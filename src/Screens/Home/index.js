@@ -53,10 +53,10 @@ const Home = ({navigation}) => {
   loadData = async () => {
     database()
       .ref('/rooms')
+      .orderByChild('name')
       .on('value', snapshot => {
         var room = [];
         snapshot.forEach(item => {
-          console.log(item);
           room.push({
             name: item.val().name,
             userName: item.val().userName,
@@ -78,12 +78,12 @@ const Home = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-        <FlatList
-          data={rooms}
-          renderItem={({item}) => <RoomItem item={item} />}
-          keyExtractor={item => item.id}
-          ItemSeparatorComponent={() => <View style={styles.separator} />}
-        />
+      <FlatList
+        data={rooms}
+        renderItem={({item}) => <RoomItem item={item} />}
+        keyExtractor={item => item.id}
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
+      />
     </SafeAreaView>
   );
 };

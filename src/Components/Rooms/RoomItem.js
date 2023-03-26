@@ -12,6 +12,7 @@ const RoomItem = ({item}) => {
           RootNavigation.navigate('Detail', {
             id: item.id,
             name: item.name,
+            roomUserId: item.userId,
           })
         }>
         <Icon name={'code'} style={styles.icon} />
